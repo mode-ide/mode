@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -u
+set -e
+set -o pipefail
+
+buildKittyApp () {
+  make app
+}
+
+(cd kitty && buildKittyApp)
+
+out="$PWD/_build"
+app="$out/mode.app"
+mode="$out/mode.app/Contents/Frameworks/mode"
+
+cp -rf kitty/kitty.app "$app"
+mkdir -p "$mode"
+cp -rf "$PWD/kitty-conf" "$mode/kitty-conf"

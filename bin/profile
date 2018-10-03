@@ -1,0 +1,18 @@
+# vim: set filetype=sh:
+
+# TODO: rework this
+export MODE__ROOT="$HOME/Workspace/mode"
+
+# Theme
+
+export LSCOLORS="AxgxcxdxBxegedabagacad"
+
+setDarkTheme() {
+  kitty @set-colors "$MODE__ROOT/kitty-conf/dark.colors.conf"
+}
+export setDarkTheme
+
+setLightTheme() {
+  kitty @set-colors "$MODE__ROOT/kitty-conf/light.colors.conf"
+}
+export setLightTheme
